@@ -1,0 +1,106 @@
+.border-top-primary {
+  border-top: .25rem solid #4e73df!important;
+  padding: 0!important;
+}
+
+//Datepicker
+.el-range-editor {
+  height: calc(1.5em + .75rem + 2px)!important;
+}
+
+//Pagination
+.pagination {
+  @include flex;
+  justify-content: flex-end;
+  li {
+    a {
+      position: relative;
+      display: block;
+      padding: .5rem .75rem;
+      margin-left: -1px;
+      line-height: 1.25;
+      color: #4e73df;
+      background-color: #fff;
+      border: 1px solid #dddfeb;
+      text-decoration: none;
+    }
+    &.active {
+      a {
+        z-index: 1;
+        color: #fff;
+        background-color: #4e73df;
+        border-color: #4e73df;
+      }
+    }
+    &.disabled {
+      a {
+        color: #858796;
+        pointer-events: none;
+        cursor: auto;
+        background-color: #f1f1f1;
+        border-color: #dddfeb;
+      }
+    }
+  }
+}
+
+//Form
+.form-custom {
+  .form-group {
+    label {
+      color: #4e73df;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .form-control {
+      border: 1px solid #cccccc;
+      @include border-radius(inherit);
+      border-left: 2px solid;
+      outline: none;
+      box-shadow: none;
+      &::placeholder {
+        color: #cccccc;
+      }
+    }
+    small {
+      color: #e74a3b!important;
+    }
+    .img-file {
+      width: 200px;
+      margin-top: 10px;
+    }
+  }
+  .btn {
+    margin-bottom: 10px;
+    font-weight: bold;
+    @include border-radius(inherit);
+  }
+}
+
+//Page 404
+.text {
+  &-404 {
+    font-size: 100px;
+    font-weight: bold;
+  }
+  &-notfound {
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &-back-dashboard {
+    background: #4e73df;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px;
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+//Table
+.table-bordered td, .table-bordered th {
+  vertical-align: middle;
+}

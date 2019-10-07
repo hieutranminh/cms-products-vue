@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>A simple upload multiple image component for Vuejs</title>
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./A simple upload multiple image component for Vuejs_files/screen.css">
+<link rel="stylesheet" type="text/css" href="./A simple upload multiple image component for Vuejs_files/prism.css">
+<link rel="apple-touch-icon" href="https://vuejsexamples.com/assets/built/vue_icon.png?v=859ed4c71c">
+<link rel="shortcut icon" href="./A simple upload multiple image component for Vuejs_files/favicon.png" type="image/png">
+    <link rel="canonical" href="https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Vue.js Examples">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A simple upload multiple image component for Vuejs">
+    <meta property="og:description" content="A simple upload multiple image component for Vuejs.">
+    <meta property="og:url" content="https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/">
+    <meta property="og:image" content="https://vuejsexamples.com/content/images/2018/10/vue-upload-multiple-image.jpg">
+    <meta property="article:published_time" content="2018-10-11T10:06:41.000Z">
+    <meta property="article:modified_time" content="2018-10-11T10:06:41.000Z">
+    <meta property="article:tag" content="Upload">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A simple upload multiple image component for Vuejs">
+    <meta name="twitter:description" content="A simple upload multiple image component for Vuejs.">
+    <meta name="twitter:url" content="https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/">
+    <meta name="twitter:image" content="https://vuejsexamples.com/content/images/2018/10/vue-upload-multiple-image.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Vue.js Examples">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Upload">
+    <meta property="og:image:width" content="534">
+    <meta property="og:image:height" content="346">
+    
+    <script type="text/javascript" async="" src="./A simple upload multiple image component for Vuejs_files/analytics.js"></script><script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Vue.js Examples",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://vuejsexamples.com/content/images/2017/10/vuejs-3.png",
+            "width": 286,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Vue.js Examples",
+        "url": "https://vuejsexamples.com/author/vue/",
+        "sameAs": []
+    },
+    "headline": "A simple upload multiple image component for Vuejs",
+    "url": "https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/",
+    "datePublished": "2018-10-11T10:06:41.000Z",
+    "dateModified": "2018-10-11T10:06:41.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://vuejsexamples.com/content/images/2018/10/vue-upload-multiple-image.jpg",
+        "width": 534,
+        "height": 346
+    },
+    "keywords": "Upload",
+    "description": "A simple upload multiple image component for Vuejs.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vuejsexamples.com/"
+    }
+}
+    </script>
+
+    <script src="./A simple upload multiple image component for Vuejs_files/ghost-sdk.min.js"></script>
+<script>
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "7ceaee8c0008"
+});
+</script>
+    <meta name="generator" content="Ghost 1.25">
+    <link rel="alternate" type="application/rss+xml" title="Vue.js Examples" href="https://vuejsexamples.com/rss/">
+<script type="text/javascript">
+        gxxconf={
+    showtag :10
+}    </script>
+<script async="" src="./A simple upload multiple image component for Vuejs_files/f.txt"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-5680150941998747", enable_page_level_ads: true }); </script>
+<style type="text/css">.github-box *{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;}.github-box{font-family:helvetica,arial,sans-serif;font-size:13px;line-height:18px;background:#fafafa;border:1px solid #ddd;color:#666;border-radius:3px}.github-box a{color:#4183c4;border:0;text-decoration:none}.github-box .github-box-title{position:relative;border-bottom:1px solid #ddd;border-radius:3px 3px 0 0;background:#fcfcfc;background:-moz-linear-gradient(#fcfcfc,#ebebeb);background:-webkit-linear-gradient(#fcfcfc,#ebebeb);}.github-box .github-box-title h3{word-wrap:break-word;font-family:helvetica,arial,sans-serif;font-weight:normal;font-size:16px;color:gray;margin:0;padding:10px 10px 10px 30px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAXCAMAAAAx3e/WAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQjIyNkJERkM0NjYxMUUxOEFDQzk3ODcxRDkzRjhCRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQjIyNkJFMEM0NjYxMUUxOEFDQzk3ODcxRDkzRjhCRSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkRCMjI2QkREQzQ2NjExRTE4QUNDOTc4NzFEOTNGOEJFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkRCMjI2QkRFQzQ2NjExRTE4QUNDOTc4NzFEOTNGOEJFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+dka2KgAAAEVQTFRFxMTEyMjI0tLSvb29vr6+zc3Ny8vLxcXFz8/P6enp3t7ex8fH0dHR1NTUw8PDwMDAzs7OvLy8wcHBu7u7v7+/zMzM////budQFwAAABd0Uk5T/////////////////////////////wDmQOZeAAAAcklEQVR42tSQSQ7DMAwD6chOukWs5eX/Ty2coo0T9wOdEzEgdRBuzNmnDofgja52JDyz5TCqUp0O6kfrb4bzSXkRiTviEZZ6JKLMJ5VQ2v8iGbtbfEwXmjFMG0VwdQo10hQNxYqtLMv9O6xvpZ/QeAkwAKjwHiJLaJc3AAAAAElFTkSuQmCC) 7px center no-repeat; width: auto;}.github-box .github-box-title h3 .repo{font-weight:bold}.github-box .github-box-title .github-stats{float:right;position:absolute;top:8px;right:10px;font-size:11px;font-weight:bold;line-height:21px;height:auto;min-height:21px}.github-box .github-box-title .github-stats a{display:inline-block;height:21px;color:#666;border:1px solid #ddd;border-radius:3px;padding:0 5px 0 18px;background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAqCAMAAACEJ4viAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQjIyNkJEQkM0NjYxMUUxOEFDQzk3ODcxRDkzRjhCRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQjIyNkJEQ0M0NjYxMUUxOEFDQzk3ODcxRDkzRjhCRSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkRCMjI2QkQ5QzQ2NjExRTE4QUNDOTc4NzFEOTNGOEJFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkRCMjI2QkRBQzQ2NjExRTE4QUNDOTc4NzFEOTNGOEJFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+h1kA9gAAAK5QTFRF+fn5sbGx8fHx09PTmpqa2dnZ/f3919fX9PT00NDQ1dXVpKSk+vr6+/v7vb298vLyycnJ8/PztLS0zc3N6enp/v7+q6ur2NjY9/f3srKy/Pz8p6en7u7uoaGhnJyc4eHhtbW1pqam6Ojo9fX17e3toqKirKys1NTUzs7Ox8fHwcHBwMDA5eXlnZ2dpaWl0dHR9vb25ubm4uLi3d3dqqqqwsLCv7+/oKCgmZmZ////8yEsbwAAAMBJREFUeNrE0tcOgjAUBuDSliUoMhTEvfdef9//xUQjgaLX0Ium/ZLT/+SkRPxZpGykvuf5VMJogy5jY9yjDHcWFhqlcRuHc4o6B1QK0BDg+hcZgNDh3NWTwzItH/bRrhvT+g3zSxZkNGCZpoWGIbU0a3Y6zV5VA6keyeDxiw62P0gUqEW0FbDim4nVikFJbU2zZXybUEaxhCqOQqyh5/G0wpWICUwthyqwD4InOMuXJ7/gs7WkoPdVg1vykF8CDACEFanKO3aSYwAAAABJRU5ErkJggg==) no-repeat}.github-box .github-box-title .github-stats .watchers{border-right:1px solid #ddd}.github-box .github-box-title .github-stats .forks{background-position:-4px -21px;padding-left:15px}.github-box .github-box-content{padding:10px;font-weight:300}.github-box .github-box-content p{margin:0}.github-box .github-box-content .link{font-weight:bold}.github-box .github-box-download{position:relative;border-top:1px solid #ddd;background:white;border-radius:0 0 3px 3px;padding:10px;height:auto;min-height:24px;}.github-box .github-box-download .updated{word-wrap:break-word;margin:0;font-size:11px;color:#666;line-height:24px;font-weight:300;width:auto}.github-box .github-box-download .updated strong{font-weight:bold;color:#000}.github-box .github-box-download .download{float:right;position:absolute;top:10px;right:10px;height:24px;line-height:24px;font-size:12px;color:#666;font-weight:bold;text-shadow:0 1px 0 rgba(255,255,255,0.9);padding:0 10px;border:1px solid #ddd;border-bottom-color:#bbb;border-radius:3px;background:#f5f5f5;background:-moz-linear-gradient(#f5f5f5,#e5e5e5);background:-webkit-linear-gradient(#f5f5f5,#e5e5e5);}.github-box .github-box-download .download:hover{color:#527894;border-color:#cfe3ed;border-bottom-color:#9fc7db;background:#f1f7fa;background:-moz-linear-gradient(#f1f7fa,#dbeaf1);background:-webkit-linear-gradient(#f1f7fa,#dbeaf1);}@media (max-width: 767px) {.github-box .github-box-title{height:auto;min-height:60px}.github-box .github-box-title h3 .repo{display:block}.github-box .github-box-title .github-stats a{display:block;clear:right;float:right;}.github-box .github-box-download{height:auto;min-height:46px;}.github-box .github-box-download .download{top:32px;}}</style></head>
+<body>
+  <nav id="navbar" class="navbar is-fixed-top is-transparent" style="
+        transform: translateY(-59px);
+      ">
+  <div id="specialShadow" class="bd-special-shadow" style="opacity: 1; transform: scaleY(0.0166667);"></div>
+
+  <div class="container">
+
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://vuejsexamples.com/">
+      <img src="./A simple upload multiple image component for Vuejs_files/favicon.png" alt="A nice collection of often useful examples done in Vue.js" width="38" height="38">
+    </a>
+ <a class="navbar-item " href="https://vuejsexamples.com/">
+        Vue.js Examples
+      </a>
+    <div id="navbarBurger" class="navbar-burger burger" data-target="navMenuIndex">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div id="navMenuIndex" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link  " href="https://vuejsexamples.com/tag/ui/">
+         Ui
+        </a>
+        <div class="navbar-dropdown is-boxed">
+<a class="navbar-item " href="https://vuejsexamples.com/tag/scroll/">Scroll</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/list/">List</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/admin-template/">Admin-template</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/table/">Table</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/layout/">Layout</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/timeline/">Timeline</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/masonry/">Masonry</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/responsive/">Responsive</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/cards/">Cards</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/bootstrap/">Bootstrap</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/grid/">Grid</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/css/">Css</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/mobile/">Mobile</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/material-design/">Material-design</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/framework/">Framework</a>
+<hr class="navbar-divider">
+<a class="navbar-item " href="https://vuejsexamples.com/tag/ui/">All UI</a>
+        
+        </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link  " href="https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/#">
+         Media
+        </a>
+        <div class="navbar-dropdown is-boxed">
+<a class="navbar-item " href="https://vuejsexamples.com/tag/slider/">Slider</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/maps/">Maps</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/images/">Images</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/movie/">Movie</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/music/">Music</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/carousel/">Carousel</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/echarts/">Echarts</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/video-player/">Video Player</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/player/">Player</a>
+
+        </div>
+      </div>
+       <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link  " href="https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/#">
+         Elements
+        </a>
+        <div class="navbar-dropdown is-boxed">
+<a class="navbar-item " href="https://vuejsexamples.com/tag/wizard/">Wizard</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/drop/">Drop</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/drag/">Drag</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/time/">Time</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/icon/">Icon</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/circle/">Circle</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/rating/">Rating</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/dialog/">Dialog</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/overlay/">Overlay</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/tooltips/">Tooltips</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/popup/">Popup</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/alert/">Alert</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/svg/">Svg</a>
+
+
+	</div>
+      </div>
+             <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link  " href="https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/#">
+         Input
+        </a>
+        <div class="navbar-dropdown is-boxed">
+<a class="navbar-item " href="https://vuejsexamples.com/tag/text/">Text</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/form/">Form</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/select/">Select</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/editor/">Editor</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/highlighting/">Highlighting</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/keyboard/">Keyboard</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/validation/">Validation</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/checkboxes/">Checkboxes</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/picker/">Picker</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/input/">Input</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/autocomplete/">Autocomplete</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/markdown/">Markdown</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/upload/">Upload</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/password/">Password</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/todo/">Todo</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/type/">Type</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/crop/">Crop</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/note/">Note</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/quote-machine/">Quote-machine</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/search/">Search</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/checklist/">Checklist</a>
+        </div>
+      </div>
+      
+       <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link  " href="https://vuejsexamples.com/tag/menu/">
+         Menu
+        </a>
+        <div class="navbar-dropdown is-boxed">
+<a class="navbar-item " href="https://vuejsexamples.com/tag/dropdown/">Dropdown</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/click-/">Click</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/router/">Router</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/switch/">Switch</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/tab/">Tab</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/pagination/">Pagination</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/navigation/">Navigation</a>
+          <hr class="navbar-divider">
+         <a class="navbar-item " href="https://vuejsexamples.com/tag/menu/">Menu</a>
+        </div>
+      </div>
+      
+       <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link  " href="https://vuejsexamples.com/tag/menu/">
+         Components
+        </a>
+        <div class="navbar-dropdown is-boxed">
+<a class="navbar-item " href="https://vuejsexamples.com/tag/emoji/">Emoji</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/progress/">Progress</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/toggle/">Toggle</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/accordion/">Accordion</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/notification/">Notification</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/qr-code/">Qr-code</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/documentation/">Documentation</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/avatar/">Avatar</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/modal/">Modal</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/loading/">Loading</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/clock/">Clock</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/calculator/">Calculator</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/calendar/">Calendar</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/pomodoro/">Pomodoro</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/lazyloading/">Lazyloading</a>
+
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link  " href="https://vuejsexamples.com/a-simple-upload-multiple-image-component-for-vuejs/#">
+         More
+        </a>
+        <div class="navbar-dropdown is-boxed">
+<a class="navbar-item " href="https://vuejsexamples.com/tag/games/">Games</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/miscellaneous/">Miscellaneous</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/animation/">Animation</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/color/">Color</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/cookie/">Cookie</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/open-source/">Open-source</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/blog/">Blog</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/pull/">Pull</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/app-tag/">App-tag</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/chat/">Chat</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/social/">Social</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/event-handling/">Event-handling</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/fetchapi/">Fetchapi</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/background/">Background</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/outside/">Outside</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/task/">Task</a>
+<a class="navbar-item " href="https://vuejsexamples.com/tag/client/">Client</a>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="navbar-end">
+    <div class="gxx_search" id="bdcs">
+                <form action="https://www.google.com/search" method="get" target="_blank">
+                    <input type="search" name="q" value="" placeholder="Search">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <input type="hidden" name="oe" value="UTF-8">
+                    <input type="hidden" name="hl" value="en">
+                    <input type="hidden" name="domains" value="vuejsexamples.com">
+                    <input type="hidden" name="sitesearch" value="vuejsexamples.com">
+                    <input type="submit" class="gxxicon" value="">
+                  
+                </form>
+            </div>
+      
+    
+    </div>
+  </div>
+  </div>
+</nav><div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full post tag-upload ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2018-10-11">11 October 2018</time>
+                        <span class="date-divider">/</span> <a href="https://vuejsexamples.com/tag/upload/">Upload</a>
+                </section>
+                <h1 class="post-full-title">A simple upload multiple image component for Vuejs</h1>
+            </header>
+            <div class="post-full-image"><img src="./A simple upload multiple image component for Vuejs_files/vue-upload-multiple-image.jpg" alt="A simple upload multiple image component for Vuejs">
+            </div>
+<div class="gg-card2">
+
+       <script async="" src="./A simple upload multiple image component for Vuejs_files/f.txt"></script>
+<!-- auto -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5680150941998747" data-ad-slot="3581240301" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown"><h2 id="vueuploadmultipleimage">vue-upload-multiple-image</h2>
+<p>A simple upload multiple image component for Vuejs.</p>
+<div class="ct-demo-links">
+<a class="ct-demo-link ct-demo-link--view" href="https://codepen.io/lekhang2512/pen/qJmQaZ" target="_blank" rel="nofollow">View demo</a>
+<a class="ct-demo-link ct-demo-link--download" href="https://github.com/lekhang2512/vue-upload-multiple-image/archive/master.zip" rel="nofollow">Download Source</a> 
+</div>
+<p><img src="./A simple upload multiple image component for Vuejs_files/vue-upload-multiple-imagev.png" alt="vue-upload-multiple-imagev"></p>
+<h2 id="developmentnpmyarn">Development (NPM / Yarn)</h2>
+<pre><code>npm run dev
+yarn dev
+</code></pre>
+<h2 id="install">Install</h2>
+<h4 id="npmyarn">NPM / Yarn</h4>
+<p>Install the package:</p>
+<pre><code>npm install vue-upload-multiple-image
+yarn add vue-upload-multiple-image
+</code></pre>
+<p>Then import it in your project</p>
+<div class="code-toolbar"><pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">import</span><span class="token space"> </span>VueUploadMultipleImage<span class="token space"> </span><span class="token keyword">from</span><span class="token space"> </span><span class="token string">'vue-upload-multiple-image'</span><span class="token lf">
+</span><span class="token lf">
+</span><span class="token keyword">export</span><span class="token space"> </span><span class="token keyword">default</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span>components<span class="token punctuation">:</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>VueUploadMultipleImage<span class="token punctuation">,</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token lf">
+</span><span class="token punctuation">}</span><span class="token lf">
+</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>JavaScript</span></div></div></div>
+<h4 id="browserglobal">Browser global</h4>
+<div class="code-toolbar"><pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>path/to/vue.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>path/to/dist/vue-upload-multiple-image.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>HTML</span></div></div></div>
+<h2 id="usage">Usage</h2>
+<p>You can simply view <a href="https://github.com/lekhang2512/vue-image-lightbox-carousel/blob/master/src/App.vue">App.vue</a> to see how to use <strong>vue-upload-multiple-image</strong></p>
+<p>How to use:</p>
+<div class="code-toolbar"><pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vue-upload-multiple-image</span>
+      <span class="token attr-name">@upload-success</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>uploadImageSuccess<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@before-remove</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>beforeRemove<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@edit-image</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>editImage<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@data-change</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dataChange<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:data-images</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>images<span class="token punctuation">"</span></span>
+      <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>vue-upload-multiple-image</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>HTML</span></div></div></div>
+<p><code>images</code> has the structure:</p>
+<div class="code-toolbar"><pre class=" language-javascript"><code class=" language-javascript"><span class="token punctuation">[</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>path<span class="token punctuation">:</span><span class="token space"> </span><span class="token string">'http://example.com/image.jpg'</span><span class="token punctuation">,</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>caption<span class="token punctuation">:</span><span class="token space"> </span><span class="token string">'caption to display. receive'</span><span class="token punctuation">,</span><span class="token space"> </span><span class="token comment">// Optional</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token lf">
+</span><span class="token punctuation">]</span><span class="token lf">
+</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>JavaScript</span></div></div></div>
+<h2 id="example">Example</h2>
+<div class="code-toolbar"><pre class=" language-html"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-strictly-unique-vue-upload-multiple-image<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span> <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>vue-upload-multiple-image</span>
+      <span class="token attr-name">@upload-success</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>uploadImageSuccess<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@before-remove</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>beforeRemove<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@edit-image</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>editImage<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@data-change</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dataChange<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:data-images</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>images<span class="token punctuation">"</span></span>
+      <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>vue-upload-multiple-image</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span><span class="token lf">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"><span class="token lf">
+</span><span class="token keyword">import</span><span class="token space"> </span>VueUploadMultipleImage<span class="token space"> </span><span class="token keyword">from</span><span class="token space"> </span><span class="token string">'vue-upload-multiple-image'</span><span class="token lf">
+</span><span class="token keyword">import</span><span class="token space"> </span>axios<span class="token space"> </span><span class="token keyword">from</span><span class="token space"> </span><span class="token string">'axios'</span><span class="token lf">
+</span><span class="token keyword">export</span><span class="token space"> </span><span class="token keyword">default</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span>name<span class="token punctuation">:</span><span class="token space"> </span><span class="token string">'app'</span><span class="token punctuation">,</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token function">data</span><span class="token space"> </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token keyword">return</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>images<span class="token punctuation">:</span><span class="token space"> </span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span>components<span class="token punctuation">:</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>VueUploadMultipleImage<span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span>methods<span class="token punctuation">:</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token function">uploadImageSuccess</span><span class="token punctuation">(</span>formData<span class="token punctuation">,</span><span class="token space"> </span>index<span class="token punctuation">,</span><span class="token space"> </span>fileList<span class="token punctuation">)</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span><span class="token space"> </span>formData<span class="token punctuation">,</span><span class="token space"> </span>index<span class="token punctuation">,</span><span class="token space"> </span>fileList<span class="token punctuation">)</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token comment">// Upload image api</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token comment">// axios.post('http://your-url-upload', { data: formData }).then(response =&gt; {</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token comment">//   console.log(response)</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token comment">// })</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token function">beforeRemove</span><span class="token space"> </span><span class="token punctuation">(</span>index<span class="token punctuation">,</span><span class="token space"> </span>done<span class="token punctuation">,</span><span class="token space"> </span>fileList<span class="token punctuation">)</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span><span class="token space"> </span>index<span class="token punctuation">,</span><span class="token space"> </span>fileList<span class="token punctuation">)</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token keyword">var</span><span class="token space"> </span>r<span class="token space"> </span><span class="token operator">=</span><span class="token space"> </span><span class="token function">confirm</span><span class="token punctuation">(</span><span class="token string">"remove image"</span><span class="token punctuation">)</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token keyword">if</span><span class="token space"> </span><span class="token punctuation">(</span>r<span class="token space"> </span><span class="token operator">==</span><span class="token space"> </span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token function">done</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token space"> </span><span class="token keyword">else</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token function">editImage</span><span class="token space"> </span><span class="token punctuation">(</span>formData<span class="token punctuation">,</span><span class="token space"> </span>index<span class="token punctuation">,</span><span class="token space"> </span>fileList<span class="token punctuation">)</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'edit data'</span><span class="token punctuation">,</span><span class="token space"> </span>formData<span class="token punctuation">,</span><span class="token space"> </span>index<span class="token punctuation">,</span><span class="token space"> </span>fileList<span class="token punctuation">)</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token function">dataChange</span><span class="token space"> </span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token space"> </span><span class="token punctuation">{</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token lf">
+</span><span class="token space"> </span><span class="token space"> </span><span class="token punctuation">}</span><span class="token lf">
+</span><span class="token punctuation">}</span><span class="token lf">
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span><span class="token lf">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+<span class="token selector">#my-strictly-unique-vue-upload-multiple-image</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Avenir'</span>, Helvetica, Arial, sans-serif<span class="token punctuation">;</span>
+  <span class="token property">-webkit-font-smoothing</span><span class="token punctuation">:</span> antialiased<span class="token punctuation">;</span>
+  <span class="token property">-moz-osx-font-smoothing</span><span class="token punctuation">:</span> grayscale<span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #2c3e50<span class="token punctuation">;</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h1, h2</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">ul</span> <span class="token punctuation">{</span>
+  <span class="token property">list-style-type</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">li</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">a</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #42b983<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span><span class="token lf">
+</span><span class="token lf">
+</span></code></pre><div class="toolbar"><div class="toolbar-item"><span>HTML</span></div></div></div>
+<h2 id="options">Options</h2>
+<h3 id="props">Props</h3>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>type</th>
+      <th>default</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dragText</td>
+      <td>String</td>
+      <td>Kéo hình ảnh(nhiều)</td>
+      <td>Drag Text</td>
+    </tr>
+    <tr>
+      <td>browseText</td>
+      <td>String</td>
+      <td>(hoặc) Chọn</td>
+      <td>Browse Text</td>
+    </tr>
+    <tr>
+      <td>primaryText</td>
+      <td>String</td>
+      <td>Mặc định</td>
+      <td>Primary Text</td>
+    </tr>
+    <tr>
+      <td>markIsPrimaryText</td>
+      <td>String</td>
+      <td>Đặt làm mặc định</td>
+      <td>Set default image</td>
+    </tr>
+    <tr>
+      <td>popupText</td>
+      <td>String</td>
+      <td>Hình ảnh này sẽ được hiển thị làm mặc định</td>
+      <td>Description default image</td>
+    </tr>
+    <tr>
+      <td>dropText</td>
+      <td>String</td>
+      <td>Thả tệp của bạn ở đây ...</td>
+      <td>Drag and drop</td>
+    </tr>
+    <tr>
+      <td>accept</td>
+      <td>String</td>
+      <td>image/gif,image/jpeg,image/png,image/bmp,image/jpg</td>
+      <td>Accept</td>
+    </tr>
+    <tr>
+      <td>dataImages</td>
+      <td>Array</td>
+      <td>[]</td>
+      <td>Array images</td>
+    </tr>
+    <tr>
+      <td>multiple</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Set upload multiple image</td>
+    </tr>
+     <tr>
+      <td>showPrimary</td>
+      <td>Boolean</td>
+      <td>true</td>
+      <td>Show text default image</td>
+    </tr>
+     <tr>
+      <td>maxImage</td>
+      <td>Number</td>
+      <td>5</td>
+      <td>Maximum upload image</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="events">Events</h3>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>arguments</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>upload-success</td>
+      <td>(formData, index, fileList)</td>
+      <td>Upload image succcess</td>
+    </tr>
+    <tr>
+      <td>edit-image</td>
+      <td>(formData, index, fileList)</td>
+      <td>Edit image succcess</td>
+    </tr>
+    <tr>
+      <td>before-remove</td>
+      <td>(index, done, fileList)</td>
+      <td>Before delete image</td>
+    </tr>
+    <tr>
+      <td>mark-is-primary</td>
+      <td>(index, fileList)</td>
+      <td>Set default image</td>
+    </tr>
+  </tbody>
+</table>
+<h2 id="github">GitHub</h2>
+<div class="github-widget" data-repo="lekhang2512/vue-upload-multiple-image"><div class="github-box repo"><div class="github-box-title"><h3><a class="owner" href="http://github.com/lekhang2512" title="http://github.com/lekhang2512">lekhang2512</a>/<a class="repo" href="http://github.com/lekhang2512/vue-upload-multiple-image" title="http://github.com/lekhang2512/vue-upload-multiple-image">vue-upload-multiple-image</a></h3><div class="github-stats"><a class="watchers" href="http://github.com/lekhang2512/vue-upload-multiple-image/watchers" title="See watchers">48</a><a class="forks" href="http://github.com/lekhang2512/vue-upload-multiple-image/network/members" title="See forkers">19</a></div></div><div class="github-box-content"><p class="description"><span> A simple upload multiple image component for Vuejs</span> — <a href="http://github.com/lekhang2512/vue-upload-multiple-image#readme">Read More</a></p><p class="link"></p></div><div class="github-box-download"><div class="updated">Latest commit to the <strong>master</strong> branch on 8-15-2019</div><a class="download" href="http://github.com/lekhang2512/vue-upload-multiple-image/zipball/master" title="Get an archive of this repository">Download as zip</a></div></div></div></div>
+            </section>
+            <footer class="post-full-footer">
+
+                <section class="author-card">
+                    <section class="author-card-content">
+                        <h4 class="author-card-name"><a href="https://vuejsexamples.com/author/vue/">Vue.js Examples</a></h4>
+                            <p>A nice collection of often useful examples done in Vue.js</p>
+                    </section>
+                </section>
+                <div class="post-full-footer-right">
+                    <a class="author-card-button" href="https://vuejsexamples.com/author/vue/">Read More</a>
+                </div>
+            </footer>
+
+<hr>
+              
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">— Vue.js Examples —</small>
+			                        <h3 class="read-next-card-header-title"><a href="https://vuejsexamples.com/tag/upload/">Upload</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+<article class="post-card post">
+        <a class="post-card-image-link" href="https://vuejsexamples.com/a-mobile-vue-component-implementation-for-weui-uploader/">
+            <div class="post-card-image" style="background-image: url(/content/images/2019/08/Vux-Uploader.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="https://vuejsexamples.com/a-mobile-vue-component-implementation-for-weui-uploader/">
+            <header class="post-card-header">               
+                    <span class="post-card-tags">25 August 2019</span>
+                
+                <h2 class="post-card-title">A mobile vue component implementation for weui uploader</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>a mobile vue component implementation for weui uploader.</p>
+            </section>
+        </a>    
+    </div>
+</article>
+<article class="post-card post">
+        <a class="post-card-image-link" href="https://vuejsexamples.com/vue-js-fileuploader-plugin-to-upload-multiple-files-specially-made-for-laravel/">
+            <div class="post-card-image" style="background-image: url(/content/images/2019/07/aammui-fileuploader.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="https://vuejsexamples.com/vue-js-fileuploader-plugin-to-upload-multiple-files-specially-made-for-laravel/">
+            <header class="post-card-header">               
+                    <span class="post-card-tags">28 July 2019</span>
+                
+                <h2 class="post-card-title">Vue Js fileuploader plugin to upload multiple files specially made for laravel</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>It's a vue js fileuploader plugin to handle multiple file upload specially made for laravel.</p>
+            </section>
+        </a>    
+    </div>
+</article>
+<article class="post-card post">
+        <a class="post-card-image-link" href="https://vuejsexamples.com/a-beautiful-vue-component-for-image-cropping-and-uploading/">
+            <div class="post-card-image" style="background-image: url(/content/images/2018/12/vue-image-crop-uploa.png)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="https://vuejsexamples.com/a-beautiful-vue-component-for-image-cropping-and-uploading/">
+            <header class="post-card-header">               
+                    <span class="post-card-tags">30 December 2018</span>
+                
+                <h2 class="post-card-title">A beautiful vue component for image cropping and uploading</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>A beautiful vue component for image crop and upload.</p>
+            </section>
+        </a>    
+    </div>
+</article>
+</ul>                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="https://vuejsexamples.com/tag/upload/">See all 22 posts →</a>
+                    </footer>
+          
+<hr>
+ <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"></path></svg>
+</div>
+
+	    <center class="read-next-card-header-sitetitle">— Next Post —</center>
+                <article class="post-card post tag-ui">
+        <a class="post-card-image-link" href="https://vuejsexamples.com/an-elegant-vue-js-tailwind-component-library/">
+            <div class="post-card-image" style="background-image: url(/content/images/2018/10/Proton-UI.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="https://vuejsexamples.com/an-elegant-vue-js-tailwind-component-library/">
+            <header class="post-card-header">
+               
+                    <span class="post-card-tags">12 October 2018</span>
+                
+                <h2 class="post-card-title">An elegant Vue.js Tailwind component library</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>An Elegant Vue.js Component Library.</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+         
+            <span class="post-card-author"><a href="https://vuejsexamples.com/tag/ui/">UI</a></span>
+        </footer>
+    </div>
+</article>
+
+	    <center class="read-next-card-header-sitetitle">— Prev Post —</center>
+                <article class="post-card post tag-admin-template">
+        <a class="post-card-image-link" href="https://vuejsexamples.com/admin-dashboard-based-on-black-dashboard-ui-template/">
+            <div class="post-card-image" style="background-image: url(/content/images/2018/10/vue-black-dashboard.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="https://vuejsexamples.com/admin-dashboard-based-on-black-dashboard-ui-template/">
+            <header class="post-card-header">
+               
+                    <span class="post-card-tags">11 October 2018</span>
+                
+                <h2 class="post-card-title">Admin dashboard based on black dashboard UI template</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Admin dashboard based on black dashboard UI template + vue-router</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+         
+            <span class="post-card-author"><a href="https://vuejsexamples.com/tag/admin-template/">Admin Template</a></span>
+        </footer>
+    </div>
+</article>
+
+   </article>
+<div class="gxx_sidebar">
+<div class="gg-card3">
+
+       <script async="" src="./A simple upload multiple image component for Vuejs_files/f.txt"></script>
+<!-- auto -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5680150941998747" data-ad-slot="3581240301" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+</div>
+<div class="gxx_sidebar">
+    <div class="gxx_sidebar_t"><span>Latest</span><i></i></div>
+    <div class="gxx_sidebar_i">
+        <div class="gxx_sidebar_i_img">
+                <a href="https://vuejsexamples.com/vue-jquery-datatables-net-wrapper-component/">
+                    <div class="gxx_sidebar_i_imgi" style="background-image:url(&#39;/content/images/2019/10/vue-datatables-net.jpg&#39;)" alt="Vue jQuery DataTables.net wrapper component"></div>
+                    <div class="gxx_sidebar_i_imgt">Vue jQuery DataTables.net wrapper component</div>
+                    <div class="gxx_sidebar_i_imgd"><i class="gxxicon-time"></i> 2019-10-07</div>
+                </a>
+                <a href="https://vuejsexamples.com/saving-quick-notes-wit-vue/">
+                    <div class="gxx_sidebar_i_imgi" style="background-image:url(&#39;/content/images/2019/10/saving-quick-notes-vue.jpg&#39;)" alt="Saving Quick Notes with Vue"></div>
+                    <div class="gxx_sidebar_i_imgt">Saving Quick Notes with Vue</div>
+                    <div class="gxx_sidebar_i_imgd"><i class="gxxicon-time"></i> 2019-10-04</div>
+                </a>
+                <a href="https://vuejsexamples.com/easily-manipulate-promises-and-their-state-in-vue/">
+                    <div class="gxx_sidebar_i_imgi" style="background-image:url(&#39;/content/images/2019/10/vue-compose-promise-example-toum7.jpg&#39;)" alt="Easily manipulate Promises and their state in Vue"></div>
+                    <div class="gxx_sidebar_i_imgt">Easily manipulate Promises and their state in Vue</div>
+                    <div class="gxx_sidebar_i_imgd"><i class="gxxicon-time"></i> 2019-10-03</div>
+                </a>
+                <a href="https://vuejsexamples.com/vue-component-to-trap-the-focus-within-a-dom-element/">
+                    <div class="gxx_sidebar_i_imgi" style="background-image:url(&#39;/content/images/2019/10/focustrap.jpg&#39;)" alt="Vue component to trap the focus within a DOM element"></div>
+                    <div class="gxx_sidebar_i_imgt">Vue component to trap the focus within a DOM element</div>
+                    <div class="gxx_sidebar_i_imgd"><i class="gxxicon-time"></i> 2019-10-05</div>
+                </a>
+                <a href="https://vuejsexamples.com/vue-directive-for-highlight-multiple-istances-of-a-word/">
+                    <div class="gxx_sidebar_i_imgi" style="background-image:url(&#39;/content/images/2019/10/vue-highlighter.jpg&#39;)" alt="Vue directive for highlight multiple istances of a word"></div>
+                    <div class="gxx_sidebar_i_imgt">Vue directive for highlight multiple istances of a word</div>
+                    <div class="gxx_sidebar_i_imgd"><i class="gxxicon-time"></i> 2019-10-06</div>
+                </a>
+        </div>
+    </div>
+  
+
+    <div class="gxx_sidebar_t"><span>Tag</span><i></i></div>
+    <div class="gxx_sidebar_i">
+        <div class="gxx_sidebar_i_b" id="GxxSidebarTags">
+                <a href="https://vuejsexamples.com/tag/ui/">UI <span>130</span></a>
+                <a href="https://vuejsexamples.com/tag/miscellaneous/">Miscellaneous <span>124</span></a>
+                <a href="https://vuejsexamples.com/tag/calendar/">Calendar <span>84</span></a>
+                <a href="https://vuejsexamples.com/tag/table/">Table <span>59</span></a>
+                <a href="https://vuejsexamples.com/tag/picker/">Picker <span>55</span></a>
+                <a href="https://vuejsexamples.com/tag/images/">Images <span>53</span></a>
+                <a href="https://vuejsexamples.com/tag/echarts/">Charts <span>52</span></a>
+                <a href="https://vuejsexamples.com/tag/editor/">Editor <span>50</span></a>
+                <a href="https://vuejsexamples.com/tag/slider/">Slider <span>50</span></a>
+                <a href="https://vuejsexamples.com/tag/scroll/">Scroll <span>49</span></a>
+                <a href="https://vuejsexamples.com/tag/loading/" class="gxx_sidebar_tag_hidden">Loading <span>47</span></a>
+                <a href="https://vuejsexamples.com/tag/menu/" class="gxx_sidebar_tag_hidden">Menu <span>46</span></a>
+                <a href="https://vuejsexamples.com/tag/app-tag/" class="gxx_sidebar_tag_hidden">App <span>46</span></a>
+                <a href="https://vuejsexamples.com/tag/modal/" class="gxx_sidebar_tag_hidden">Modal <span>42</span></a>
+                <a href="https://vuejsexamples.com/tag/dialog/" class="gxx_sidebar_tag_hidden">Dialog <span>41</span></a>
+                <a href="https://vuejsexamples.com/tag/input/" class="gxx_sidebar_tag_hidden">Input <span>37</span></a>
+                <a href="https://vuejsexamples.com/tag/animation/" class="gxx_sidebar_tag_hidden">Animation <span>35</span></a>
+                <a href="https://vuejsexamples.com/tag/layout/" class="gxx_sidebar_tag_hidden">Layout <span>34</span></a>
+                <a href="https://vuejsexamples.com/tag/select/" class="gxx_sidebar_tag_hidden">Select <span>33</span></a>
+                <a href="https://vuejsexamples.com/tag/games/" class="gxx_sidebar_tag_hidden">Games <span>32</span></a>
+                <a href="https://vuejsexamples.com/tag/form/" class="gxx_sidebar_tag_hidden">Form <span>32</span></a>
+                <a href="https://vuejsexamples.com/tag/todo/" class="gxx_sidebar_tag_hidden">Todo <span>32</span></a>
+                <a href="https://vuejsexamples.com/tag/popup/" class="gxx_sidebar_tag_hidden">Popup <span>32</span></a>
+                <a href="https://vuejsexamples.com/tag/drag/" class="gxx_sidebar_tag_hidden">Drag <span>30</span></a>
+                <a href="https://vuejsexamples.com/tag/notification/" class="gxx_sidebar_tag_hidden">Notification <span>30</span></a>
+                <a href="https://vuejsexamples.com/tag/admin-template/" class="gxx_sidebar_tag_hidden">Admin Template <span>30</span></a>
+                <a href="https://vuejsexamples.com/tag/bootstrap/" class="gxx_sidebar_tag_hidden">Bootstrap <span>29</span></a>
+                <a href="https://vuejsexamples.com/tag/time/" class="gxx_sidebar_tag_hidden">Time <span>29</span></a>
+                <a href="https://vuejsexamples.com/tag/framework/" class="gxx_sidebar_tag_hidden">Framework <span>28</span></a>
+                <a href="https://vuejsexamples.com/tag/material-design/" class="gxx_sidebar_tag_hidden">Material Design <span>25</span></a>
+        </div>
+    </div>
+    <div class="gxx_sidebar_more" style="display: block;"><i class="gxxicon-top"></i></div>
+<div class="gg-card4">
+<script async="" src="./A simple upload multiple image component for Vuejs_files/f.txt"></script>
+<!-- 300X600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-5680150941998747" data-ad-slot="3460995508"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+</div>
+
+
+
+</div>
+</div>
+<script type="text/javascript" src="./A simple upload multiple image component for Vuejs_files/prism.js"></script>
+<footer class="site-footer outer">
+            <div class="site-footer-content">
+                <section class="copyright"><a href="https://vuejsexamples.com/">Vue.js Examples</a> © 2019</section>
+                <nav class="site-footer-nav">
+                    <a href="https://vuejsexamples.com/">Latest Posts</a>
+                    
+                    
+                </nav>
+            </div>
+        </footer>
+
+   <script src="./A simple upload multiple image component for Vuejs_files/jquery-3.2.1.min.js"></script>
+   <script src="./A simple upload multiple image component for Vuejs_files/jquery.githubRepoWidget.min.js"></script>
+
+    
+
+    
+    <script src="./A simple upload multiple image component for Vuejs_files/nav.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./A simple upload multiple image component for Vuejs_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-36620874-1');
+</script>
+
+
+</body></html>
