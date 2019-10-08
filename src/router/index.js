@@ -10,6 +10,8 @@ import PageNotFound from '../pages/PageNotFound'
 import DashBoard from '../pages/dashboard/DashBoard'
 import NewsRoute from './routes/news'
 import ProductsRoute from './routes/products'
+import SlidersRoute from './routes/sliders'
+import AccountsRoute from './routes/accounts'
 
 Vue.use(Router)
 
@@ -45,6 +47,8 @@ const router = new Router({
         //Module
         ...NewsRoute,
         ...ProductsRoute,
+        ...SlidersRoute,
+        ...AccountsRoute,
         //Page not found
         {
           path: '*',

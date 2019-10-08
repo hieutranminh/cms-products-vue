@@ -69,6 +69,9 @@
     .img-file {
       width: 200px;
       margin-top: 10px;
+      padding: 5px;
+      border: 1px dashed #222222;
+      @include border-radius(5px);
     }
   }
   .btn {
@@ -104,3 +107,5 @@
 .table-bordered td, .table-bordered th {
   vertical-align: middle;
 }
+
+//Custom upload image Element UI
