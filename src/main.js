@@ -21,7 +21,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import { extend } from 'vee-validate';
 import * as rules from 'vee-validate/dist/rules';
 import en from 'vee-validate/dist/locale/en';
-import { ValidationProvider } from 'vee-validate';
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
 
 //import vue upload multiple
 import VueLazyload from 'vue-lazyload'
@@ -35,6 +35,7 @@ for (let rule in rules) {
 }
 
 Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver);
 
 Vue.use(ElementUI, { locale: el_en })
 
