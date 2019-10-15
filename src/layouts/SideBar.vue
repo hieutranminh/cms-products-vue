@@ -40,11 +40,11 @@
         <span>Products</span></a>
     </router-link>
 
-    <li class="nav-item">
-      <a class="nav-link" href="charts.html">
+    <router-link tag="li" :to="{name: 'Sliders'}" active-class="active" class="nav-item">
+      <a class="nav-link">
         <i class="fas fa-clone"></i>
         <span>Sliders</span></a>
-    </li>
+    </router-link>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -77,11 +77,11 @@
       User & Function
     </div>
 
-    <li class="nav-item">
-      <a class="nav-link" href="charts.html">
+    <router-link tag="li" :to="{name: 'Accounts'}" active-class="active" class="nav-item">
+      <a class="nav-link">
         <i class="fas fa-user-tie"></i>
         <span>User</span></a>
-    </li>
+    </router-link>
 
     <li class="nav-item">
       <a class="nav-link" href="charts.html">

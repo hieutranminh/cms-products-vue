@@ -23,13 +23,17 @@
             </div>
             <!--Field-->
             <div class="form-group">
-              <label for="thumbnail">Choose Thumbnail image</label>
-              <div class="form-file">
-                <input type="file"
-                       name="thumbnail"
-                       id="thumbnail">
-              </div>
-              <img class="img-file" src="../../assets/images/dummy-image.png" alt="dummy">
+              <label for="new_title">Thumbnail Image</label>
+              <el-upload
+                  class="avatar-uploader"
+                  action=""
+                  :show-file-list="false"
+                  :multiple="false"
+                  :on-change="handleImageSuccess"
+                  :auto-upload="false">
+                <img v-if="inputData.input_news_thumbnail" :src="inputData.input_news_thumbnail" class="avatar" alt="upload" style="width: 200px;">
+                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+              </el-upload>
             </div>
             <!--Field-->
             <div class="form-group">
@@ -77,10 +81,58 @@
       return {
         inputData: {
           input_news_title: '',
+          input_news_thumbnail: '',
           input_short_des: '',
           input_content_editor: '',
         }
       }
+    },
+
+    methods: {
+
+      getBase64 (img, callback) {
+        const reader = new FileReader()
+        reader.addEventListener('load', () => callback(reader.result))
+        reader.readAsDataURL(img)
+      },
+
+      handleImageSuccess(file) {
+        if (this.beforeAvatarUpload(file.raw)) {
+          this.getBase64(file.raw, (imageUrl) => {
+            this.inputData.input_news_thumbnail = imageUrl
+          })
+        }
+      },
+
+      beforeAvatarUpload(file) {
+        const typeValidator = ['image/jpeg', 'image/jpg', 'image/png']
+
+        const isType = typeValidator.indexOf(file.type) !== -1
+        const isLt2M = file.size / 1024 / 1024 < 2;
+
+        if (!isType) {
+          this.$message.error('Picture must be JPEG, JPG, PNG format!');
+        }
+        if (!isLt2M) {
+          this.$message.error('Picture size can not exceed 2MB!');
+        }
+        return isType && isLt2M;
+      }
     }
   }
 </script>
+
+<style scoped>
+  .avatar-uploader-icon {
+    border: 2px dashed #d9d9d9!important;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    font-size: 28px;
+    color: #8c939d;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+  }
+</style>
