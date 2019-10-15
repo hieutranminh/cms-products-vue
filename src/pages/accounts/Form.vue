@@ -28,9 +28,9 @@
             </div>
           </div>
           <!--Form input-->
-          <ValidationObserver tag="form" class="form-custom" ref="formAccount">
+          <ValidationObserver tag="form" class="form-custom" ref="observer" @submit.prevent="validateBeforeSubmit()">
             <!--Step 01-->
-            <div class="row" v-if="step === 1">
+            <div class="row" v-show="step === 1">
               <!--Field-->
               <div class="col-lg-6">
                 <div class="form-group">
@@ -102,12 +102,12 @@
               <!--Button event-->
               <div class="col-lg-12">
                 <div class="button-event my-3 text-right">
-                  <button class="next" :class="{disabled: !canNext}" @click.prevent="next()" :disabled="!canNext">Next</button>
+                  <button class="next" @click.prevent="next()">Next</button>
                 </div>
               </div>
             </div>
             <!--Step 02-->
-            <div class="row" v-if="step === 2">
+            <div class="row" v-show="step === 2">
               <!--Field-->
               <div class="col-lg-6">
                 <div class="form-group">
@@ -146,12 +146,12 @@
               <div class="col-lg-12">
                 <div class="button-event my-3 d-flex justify-content-between">
                   <button class="prev" @click.prevent="prev()">Previous</button>
-                  <button class="submit" @click.prevent="submit()">Submit</button>
+                  <button class="submit">Submit</button>
                 </div>
               </div>
             </div>
             <!--Step 03-->
-            <div class="row" v-if="step === 3">
+            <div class="row" v-show="step === 3">
               <div class="col-lg-12">
                 <div class="submission d-flex justify-content-center">
                   <div class="content text-center">
@@ -187,7 +187,7 @@
     data () {
       return {
         step: 1,
-        canNext: false,
+        canSubmit: true,
         inputData: {
           input_first_name: '',
           input_last_name: '',
@@ -196,21 +196,6 @@
           input_password:'',
           input_password_confirm:''
         }
-      }
-    },
-
-    watch: {
-      inputData :{
-        handler () {
-          console.log(this.$refs.formAccount.ctx)
-          if (this.$refs.formAccount.ctx.invalid) {
-            this.canNext = false;
-          }else {
-            this.canNext = true;
-          }
-        },
-
-        deep:true
       }
     },
 
@@ -223,8 +208,14 @@
         this.step--;
       },
 
-      submit () {
-        this.step++;
+      async validateBeforeSubmit() {
+        const isValid = await this.$refs.observer.validate();
+        if (!isValid) {
+          console.log('validate fail')
+        }
+        else {
+          console.log('validate okkk')
+        }
       }
     },
   }
